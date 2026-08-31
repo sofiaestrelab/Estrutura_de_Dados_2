@@ -67,6 +67,20 @@ Complexidade Pior Caso
 
 O(n²) — ocorre quando o pivô escolhido é sistematicamente o menor ou o maior elemento da partição (por exemplo, ao ordenar um vetor já ordenado usando sempre o primeiro elemento como pivô), gerando partições extremamente desbalanceadas.
 
+Vantagens e Limitações:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Vantagens: 
+   - Excelente desempenho médio, geralmente superior a outros algoritmos O(n log n) na prática, devido a fatores como localidade de referência e baixo overhead por comparação;
+   - Ordenação in-place (não exige memória auxiliar significativa, ao contrário do Merge Sort);
+   - Amplamente utilizado e otimizado em bibliotecas padrão de diversas linguagens.
+
+Limitações:
+   - O pior caso é O(n²), o que pode ser problemático em cenários adversos ou com entradas específicas;
+   - Não é estável em sua implementação clássica (a ordem relativa de elementos iguais pode não ser preservada);
+   - O desempenho depende fortemente da estratégia de escolha do pivô;
+   - É sensível a estouro de pilha (stack overflow) em recursões muito profundas, no caso de vetores muito grandes e mal particionados.
+
 Sobre o uso do algoritmo
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -79,5 +93,3 @@ Quando não usar:
    - Aplicações que exigem garantia de desempenho no pior caso (nesses casos, Merge Sort ou Heap Sort, que garantem O(n log n) sempre, são mais indicados);
    - Situações em que a estabilidade da ordenação é um requisito obrigatório;
    - Entradas já ordenadas ou quase ordenadas, quando a estratégia de escolha do pivô não é adequada (ex: sempre escolher o primeiro elemento), podendo degradar o desempenho para O(n²).
-
-
