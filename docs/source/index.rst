@@ -13,5 +13,8 @@ na qual o desenvolvimento dos códigos é apenas o ponto de partida.
    Parte1/index
    parte2/index
    parte3/index
+   parte4/index
+   parte5/index
+   parte6/index
 
 
