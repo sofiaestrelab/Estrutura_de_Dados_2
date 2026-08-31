@@ -11,3 +11,7 @@ na qual o desenvolvimento dos códigos é apenas o ponto de partida.
    :numbered:
 
    Parte1/index
+   parte2/index
+   parte3/index
+
+
