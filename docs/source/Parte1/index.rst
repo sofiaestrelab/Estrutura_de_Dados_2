@@ -6,5 +6,5 @@ Bubble Sort e Quick Sort
 
    bubble_sort
    quick_sort 
-   tabela_comparativa
+   tabela_comparatva
 
