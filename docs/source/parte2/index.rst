@@ -88,16 +88,16 @@ Programa de teste com Bubble e Quick Sort
 Perguntas sobre o programa:
 ---------------------------
 
-a) Qual algoritmo realizou menos operações para 10 elementos?
+**a)** Qual algoritmo realizou menos operações para 10 elementos?
 
-b) O comportamento permaneceu igual para 20 elementos?
+**b)** O comportamento permaneceu igual para 20 elementos?
 
-c) O que aconteceu quando o tamanho aumentou para 1.000 elementos?
+**c)** O que aconteceu quando o tamanho aumentou para 1.000 elementos?
 
-d) Qual algoritmo apresentou maior crescimento da quantidade de operações?
+**d)** Qual algoritmo apresentou maior crescimento da quantidade de operações?
 
-e) Os resultados experimentais são coerentes com as complexidades teóricas estudadas?
+**e)** Os resultados experimentais são coerentes com as complexidades teóricas estudadas?
 
-f) Em qual situação você escolheria Bubble Sort?
+**f)** Em qual situação você escolheria Bubble Sort?
 
-g) Em qual situação você escolheria Quick Sort?
+**g)** Em qual situação você escolheria Quick Sort?
