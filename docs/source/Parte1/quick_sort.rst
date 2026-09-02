@@ -9,34 +9,45 @@ Exemplo de Pseudocódigo
 .. code-block:: python
    :linenos:
 
-   def bubble_sort(vetor):
-       n = len(vetor)
-       comparacoes = 0
-       trocas = 0
+   def quick_sort(vetor, inicio=0, fim=None, comparacoes=0, trocas=0):
+       if fim is None:
+           fim = len(vetor) - 1
 
-       for i in range(n - 1):
-           trocou = False
+       if inicio < fim:
+           # Particiona o vetor e obtém a posição final do pivô
+           posicao_pivo, comparacoes, trocas = particionar(vetor, inicio, fim, comparacoes, trocas)
 
-           for j in range(n - 1 - i):
-               comparacoes += 1
-
-               if vetor[j] > vetor[j + 1]:
-                   vetor[j], vetor[j + 1] = vetor[j + 1], vetor[j]
-                   trocas += 1
-                   trocou = True
-
-           # Se não houve troca nesta passagem, o vetor já está ordenado
-           if not trocou:
-               break
+           # Ordena recursivamente os elementos antes e depois do pivô
+           _, comparacoes, trocas = quick_sort(vetor, inicio, posicao_pivo - 1, comparacoes, trocas)
+           _, comparacoes, trocas = quick_sort(vetor, posicao_pivo + 1, fim, comparacoes, trocas)
 
        return vetor, comparacoes, trocas
+
+
+   def particionar(vetor, inicio, fim, comparacoes, trocas):
+       pivo = vetor[fim]  # Escolhe o último elemento como pivô
+       i = inicio - 1      # Índice do menor elemento
+
+       for j in range(inicio, fim):
+           comparacoes += 1
+
+           if vetor[j] <= pivo:
+               i += 1
+               vetor[i], vetor[j] = vetor[j], vetor[i]
+               trocas += 1
+
+       # Coloca o pivô na posição correta
+       vetor[i + 1], vetor[fim] = vetor[fim], vetor[i + 1]
+       trocas += 1
+
+       return i + 1, comparacoes, trocas
 
 
    # Exemplo de uso
    if __name__ == "__main__":
        dados = [5, 3, 8, 1, 9, 2]
 
-       ordenado, num_comparacoes, num_trocas = bubble_sort(dados)
+       ordenado, num_comparacoes, num_trocas = quick_sort(dados)
 
        print("Vetor ordenado:", ordenado)
        print("Número de comparações:", num_comparacoes)
@@ -75,11 +86,21 @@ Vantagens:
   - Amplamente utilizado e otimizado em bibliotecas padrão de diversas linguagens.
 
 Limitações:
+   - O pior caso é O(n²), o que pode ser problemático em cenários adversos ou com entradas específicas;
+   - Não é estável em sua implementação clássica (a ordem relativa de elementos iguais pode não ser preservada);
+   - O desempenho depende fortemente da estratégia de escolha do pivô;
+   - É sensível a estouro de pilha (stack overflow) em recursões muito profundas, no caso de vetores muito grandes e mal particionados.
 
+Sobre o uso do algoritmo
+~~~~~~~~~~~~~~~~~~~~~~~~
 
+Quando usar:
+   - Grandes volumes de dados, onde o desempenho médio O(n log n) é vantajoso;
+   - Aplicações de propósito geral, sendo inclusive a base de implementações padrão de ordenação em diversas linguagens;
+   - Cenários em que o uso eficiente de memória é importante (ordenação in-place).
 
-
-
-Sobre o uso do algoritmo:
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Quando não usar:
+   - Aplicações que exigem garantia de desempenho no pior caso (nesses casos, Merge Sort ou Heap Sort, que garantem O(n log n) sempre, são mais indicados);
+   - Situações em que a estabilidade da ordenação é um requisito obrigatório;
+   - Entradas já ordenadas ou quase ordenadas, quando a estratégia de escolha do pivô não é adequada (ex: sempre escolher o primeiro elemento), podendo degradar o desempenho para O(n²).   
 
