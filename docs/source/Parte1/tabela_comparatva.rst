@@ -8,7 +8,7 @@ Tabela Comparativa
    :width: 100%
    :widths: auto
    :header-rows: 1
-   :class: quebra-linha-dois-quatro
+   :class: quebra-linha-dois-tres
 
    * - Característica
      - Bubble Sort
