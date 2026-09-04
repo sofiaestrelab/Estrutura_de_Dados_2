@@ -1,6 +1,6 @@
-/*Quebra a linha das colunas 2 e tres */
-table.quebra-linha-dois-tres :is(td, th):nth-child(2),
-table.quebra-linha-dois-tres :is(td, th):last-child {
+/*Quebra a linha das colunas 2 e 3*/
+table.quebra-linha-colunas-dois-tres :is(td, th):nth-child(2),
+table.quebra-linha-colunas-dois-tres :is(td, th):nth-child(3) {
   white-space: normal !important;
   word-break: break-word !important;
   overflow-wrap: anywhere !important;
